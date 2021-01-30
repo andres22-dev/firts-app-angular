@@ -1,3 +1,4 @@
+import { temporaryAllocator } from '@angular/compiler/src/render3/view/util';
 import { Component, OnInit } from '@angular/core';
 import {Item} from '../../models/item';
 
@@ -9,6 +10,7 @@ import {Item} from '../../models/item';
 export class ItemsComponent implements OnInit {
 
   items:Item[] = [];
+
 
   constructor() { }
 
@@ -35,4 +37,11 @@ export class ItemsComponent implements OnInit {
 
   }
 
+  deleteItem(item:Item){
+
+    this.items  = this.items.filter(x => x.id != item.id)
+
+
+
+  }
 }
