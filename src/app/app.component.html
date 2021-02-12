@@ -11,6 +11,22 @@
     Una capa principal que contenga todo el html por ejemplo div
 -->
 <div>
+  <!-- Aqui estamos trayendo la variable que definimos en nuestra clase
+  con las {{variable}} podremos utilizarla dentro de nuestro html
+
+  Tambien se pueden realizar operaciones dentro de estas llaves
+  {{ 2 * 6}} tambien podemos hacer cosas como expresiones, condiciones y validiciones
+  y muchas mas cosas
+-->
+  <h2>{{ title}}</h2>
+ <!-- Incertamos el componente que acabamos de generar que en este caso es el
+      --> 
   <app-header></app-header>
-  <app-items></app-items>
+
+  <!-- Agregamos router outlet que es donde se agregaran los componentes de otras paginas
+      Solo se mantendra si es fijo aqui en la carpeta raiz si no solo mostrara en el
+      router-outlet
+  -->
+  <router-outlet></router-outlet>
+  
 </div>

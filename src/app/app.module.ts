@@ -1,3 +1,8 @@
+/*
+  Este archivo es importante ya que es donde vamos a manejar las integraciones 
+  o inyecciones de servicios, modulos o de otros componentes.
+*/
+
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -6,17 +11,24 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ItemsComponent } from './components/items/items.component';
 import { ItemComponent } from './components/item/item.component';
+import { TotalComponent } from './components/total/total.component';
+import { AdditemComponent } from './components/additem/additem.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     ItemsComponent,
-    ItemComponent
+    ItemComponent,
+    TotalComponent,
+    AdditemComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
