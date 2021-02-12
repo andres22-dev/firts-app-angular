@@ -1,6 +1,7 @@
 import { temporaryAllocator } from '@angular/compiler/src/render3/view/util';
 import { Component, OnInit } from '@angular/core';
 import { element } from 'protractor';
+import { ItemService } from '../../services/item.service';
 //luego de haber creado nuestra clase Item en nuestra carpeta modulos
   //La traemos a el componente items para hacer uso de ella
 import {Item} from '../../models/item';
@@ -20,7 +21,7 @@ export class ItemsComponent implements OnInit {
   total:number = 0
 
 
-  constructor() { }
+  constructor(private itemService:ItemService) { }
 
   //Aqui en ngOnInit es donde se crea nuestro componente dentro del ciclo de vida
   ngOnInit(): void {
@@ -29,23 +30,8 @@ export class ItemsComponent implements OnInit {
       //Un arreglo de objetos y estos objetos tendran la informacion que tiene
         //Nuestra clase Item y podremos asignarle nuevos valores a los atributos
           //De estos objetos
-    this.items = [{
-
-        id: 0,
-        title: 'manzana',
-        price: 10.5,
-        quantity: 4,
-        completed:false
-    },{
-
-      id:1,
-      title: 'mango',
-      price: 11.4,
-      quantity: 3,
-      completed:true
-    
-    }];
-
+    //this.items = [];
+    this.items = this.itemService.getItems();
     this.getTotal();
   }
 //Inicializamos nuestra funcion y le pasamos el parametro que va a ser de tipo Item
