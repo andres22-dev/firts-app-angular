@@ -1,0 +1,29 @@
+<div>
+  <!-- Vamos a utilizar nuestro componente de total en el componente items-->
+    <app-total mensaje="Total por pagar:" [total]="total"></app-total>
+    <!-- Insertamos nuestro componente item 
+        
+    Con *ngFor vamos a recorrer nuestro arreglo de objetos 
+
+    Luego vamos a pasarle la informacion a el componente para hacerlo debemos
+      Hacer referencia a la propiedad de entrada, para hacer referencia
+				Utilizamos los [nombre]="objeto" entonces en cada iteracion e items
+					va a regresar el objeto items el cual se lo asignaremos a la propiedad
+						de entrada con input
+    
+		3. Le agregamos eventos para hacerlo siempre agregamos parentesis y le asignamos
+			La funcion que tendremos que inicializar en nuestra clase y esta funcion resivira
+				Un parametro $event(el evento que emitimos desde el otro componente)
+
+    4. Agregamos un evento que nos actualizara nuestro componente de precios cuando
+      se le haga check o se le quita para actualizar el precio de este
+    -->
+
+    <app-item 
+    *ngFor="let item of items" 
+    [item]="item"
+    (deleteItem)="deleteItem($event)"
+    
+    (toggleItem)="toggleItem($event)"></app-item>
+
+</div>

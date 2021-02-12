@@ -1,0 +1,44 @@
+
+<!-- Agregamos la propiedad ngClass oara cambiar las clases de mi contenedor y
+      a esta propiedade le agregamos un objeto que va a evaluar una expresion
+
+    Si item.completed es true va a agregar el estilo completed y si es false lo va a 
+    quitar
+
+    Esta clase lo que hara es cambiar los estilos del elemento para que se vean grisis
+    -->
+<div class="row" [ngClass]="{'completed': item.completed}">
+    <div class="title">
+    <!-- Agregamos la propiedad checked esta significa que el elemento
+    				tiene el chulito o no 
+			Le asignaremos el valor item.completed que obtenemos de los objetos que
+				definimos
+
+
+-->  
+    <!-- Agregamos un nuevo evento esta vez a nuestro checkbox el tiene la funcion
+        OnToggle que recibira por parametro un item-->
+    <input type="checkbox" [checked]="item.completed" (change)="onToggle(item)" >
+    {{item.title  }}
+    </div>
+
+    <div class="price">
+			<!-- En angular tenemos la posibilidad de utilizar el operador pipe
+						para utilizar una funcion con nuestro contenido-->
+        {{item.price | currency }}
+    </div>
+    
+    <div class="quantity">
+        {{item.quantity}}
+    </div>
+
+    <div class="total">
+        {{(item.price * item.quantity |currency)}}
+    </div>
+
+    <div class="actions">
+			<!-- Para definir un evento lo hacemos con parentesis y le asginamos
+					Una funcion que recibe por parametro el item es lo que queremos eliminar-->
+        <button (click)="onDelete(item)">Eliminar</button>
+    </div>
+</div>
